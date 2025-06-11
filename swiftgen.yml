@@ -1,0 +1,19 @@
+input_dir: abz.agency/Resources
+output_dir: abz.agency/Resources
+
+xcassets:
+  inputs:
+    - Images/Assets.xcassets
+  outputs:
+    - templateName: swift5
+      output: Images/Assets.swift
+
+fonts:
+  inputs:
+    - Fonts
+  outputs:
+    - templateName: swift5
+      output: Fonts/Fonts.swift
+
+
+
