@@ -7,4 +7,5 @@ target 'abz.agency' do
 
   # Pods for abz.agency
     pod 'SwiftGen'
+    pod 'Alamofire', '~> 5.4'
 end
