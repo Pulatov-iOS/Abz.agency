@@ -8,7 +8,7 @@
 import Foundation
 import Combine
 
-final class UsersViewModel: ObservableObject {
+final class MainViewModel: ObservableObject {
     @Published private(set) var users: [User] = []
     @Published private(set) var isLoading = false
     @Published private(set) var isAllLoaded = false

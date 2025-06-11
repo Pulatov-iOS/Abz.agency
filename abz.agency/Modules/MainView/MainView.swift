@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct MainView: View {
-    @StateObject private var viewModel = UsersViewModel()
+    @StateObject private var viewModel = MainViewModel()
     
     var body: some View {
         VStack(spacing: 0) {

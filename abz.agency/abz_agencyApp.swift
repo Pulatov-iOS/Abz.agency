@@ -9,19 +9,23 @@ import SwiftUI
 
 @main
 struct abz_agencyApp: App {
-    @State private var selectedTab: TabBarType = .users
+    @StateObject private var viewModel = AppViewModel()
     
     var body: some Scene {
         WindowGroup {
             ZStack(alignment: .bottom) {
-                switch selectedTab {
-                case .users:
-                    MainView()
-                case .signUp:
-                    EmptyView()
+                if viewModel.isConnected {
+                    switch viewModel.selectedTab {
+                    case .users:
+                        MainView()
+                    case .signUp:
+                        EmptyView()
+                    }
+                    
+                    TabBarView(selectedTab: $viewModel.selectedTab)
+                } else {
+                    InternetConnectionView()
                 }
-                
-                TabBarView(selectedTab: $selectedTab)
             }
             .ignoresSafeArea(edges: .bottom)
         }

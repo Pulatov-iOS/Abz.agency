@@ -32,6 +32,9 @@ internal enum Asset {
     internal static let yellow = ColorAsset(name: "Colors/yellow")
   }
   internal enum Images {
+    internal enum InternetConnection {
+      internal static let wifi = ImageAsset(name: "Images/InternetConnection/wifi")
+    }
     internal enum Launch {
       internal static let logo = ImageAsset(name: "Images/Launch/logo")
     }
