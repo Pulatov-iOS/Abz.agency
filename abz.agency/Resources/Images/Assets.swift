@@ -51,6 +51,7 @@ internal enum Asset {
         internal static let usersNotActive = ImageAsset(name: "Images/Main/TabBar/usersNotActive")
       }
       internal static let noUsers = ImageAsset(name: "Images/Main/noUsers")
+      internal static let people = ImageAsset(name: "Images/Main/people")
     }
     internal enum Result {
       internal static let close = ImageAsset(name: "Images/Result/close")

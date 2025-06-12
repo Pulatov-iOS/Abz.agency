@@ -28,6 +28,8 @@
 		1119F5F12DFA01510055E052 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1119F5F02DFA01510055E052 /* ImagePicker.swift */; };
 		1119F5F32DFA01950055E052 /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1119F5F22DFA01940055E052 /* SignUpViewModel.swift */; };
 		1119F5F52DFA527C0055E052 /* ResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1119F5F42DFA527C0055E052 /* ResultView.swift */; };
+		1119F5F72DFA5BEF0055E052 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1119F5F62DFA5BEF0055E052 /* CoreDataManager.swift */; };
+		1119F5FA2DFA5C450055E052 /* abz.agency.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1119F5F82DFA5C450055E052 /* abz.agency.xcdatamodeld */; };
 		752276CF2B012BFA2083687E /* Pods_abz_agency.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E58B04ABD5386783DDC753F6 /* Pods_abz_agency.framework */; };
 /* End PBXBuildFile section */
 
@@ -54,6 +56,8 @@
 		1119F5F02DFA01510055E052 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		1119F5F22DFA01940055E052 /* SignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewModel.swift; sourceTree = "<group>"; };
 		1119F5F42DFA527C0055E052 /* ResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultView.swift; sourceTree = "<group>"; };
+		1119F5F62DFA5BEF0055E052 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
+		1119F5F92DFA5C450055E052 /* abz.agency.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = abz.agency.xcdatamodel; sourceTree = "<group>"; };
 		40125189B37C4E993C317680 /* Pods-abz.agency.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-abz.agency.debug.xcconfig"; path = "Target Support Files/Pods-abz.agency/Pods-abz.agency.debug.xcconfig"; sourceTree = "<group>"; };
 		D5E9ECC8F684E4726843ECED /* Pods-abz.agency.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-abz.agency.release.xcconfig"; path = "Target Support Files/Pods-abz.agency/Pods-abz.agency.release.xcconfig"; sourceTree = "<group>"; };
 		E58B04ABD5386783DDC753F6 /* Pods_abz_agency.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_abz_agency.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -95,6 +99,7 @@
 				1119F5B72DF9C20B0055E052 /* abz_agency.xcdatamodeld */,
 				1119F5B82DF9C20B0055E052 /* abz_agencyApp.swift */,
 				1119F5E82DF9EC250055E052 /* AppViewModel.swift */,
+				1119F5F82DFA5C450055E052 /* abz.agency.xcdatamodeld */,
 				1119F5DA2DF9D9F50055E052 /* Managers */,
 				1119F5E32DF9E0740055E052 /* Extension */,
 				1119F5C72DF9C2460055E052 /* Modules */,
@@ -173,6 +178,7 @@
 			children = (
 				1119F5DE2DF9DA1D0055E052 /* Api */,
 				1119F5E62DF9EBB60055E052 /* NetworkMonitor.swift */,
+				1119F5F62DFA5BEF0055E052 /* CoreDataManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -371,6 +377,7 @@
 				1119F5E52DF9E0840055E052 /* String+Extension.swift in Sources */,
 				1119F5D92DF9D13D0055E052 /* Fonts.swift in Sources */,
 				1119F5E02DF9DA290055E052 /* ApiModels.swift in Sources */,
+				1119F5F72DFA5BEF0055E052 /* CoreDataManager.swift in Sources */,
 				1119F5F12DFA01510055E052 /* ImagePicker.swift in Sources */,
 				1119F5F52DFA527C0055E052 /* ResultView.swift in Sources */,
 				1119F5CA2DF9C27A0055E052 /* MainView.swift in Sources */,
@@ -379,6 +386,7 @@
 				1119F5DD2DF9DA070055E052 /* ApiManager.swift in Sources */,
 				1119F5EC2DF9ECC50055E052 /* InternetConnectionView.swift in Sources */,
 				1119F5EF2DFA013F0055E052 /* SignUpView.swift in Sources */,
+				1119F5FA2DFA5C450055E052 /* abz.agency.xcdatamodeld in Sources */,
 				1119F5E72DF9EBB60055E052 /* NetworkMonitor.swift in Sources */,
 				1119F5E92DF9EC2E0055E052 /* AppViewModel.swift in Sources */,
 				1119F5C02DF9C20B0055E052 /* abz_agencyApp.swift in Sources */,
@@ -608,6 +616,16 @@
 			currentVersion = 1119F5B62DF9C20B0055E052 /* abz_agency.xcdatamodel */;
 			path = abz_agency.xcdatamodeld;
 			sourceTree = "<group>";
+		};
+		1119F5F82DFA5C450055E052 /* abz.agency.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				1119F5F92DFA5C450055E052 /* abz.agency.xcdatamodel */,
+			);
+			currentVersion = 1119F5F92DFA5C450055E052 /* abz.agency.xcdatamodel */;
+			path = abz.agency.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
 		};
 /* End XCVersionGroup section */
 	};
