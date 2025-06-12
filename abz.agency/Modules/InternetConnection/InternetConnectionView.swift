@@ -29,7 +29,6 @@ struct InternetConnectionView: View {
                 .background(Asset.Colors.yellow.swiftUIColor)
                 .cornerRadius(UIScreen.main.bounds.height * 0.0375)
             }
-
         }
         .frame(maxHeight: .infinity)
         .offset(y: -UIScreen.main.bounds.height * 0.01)

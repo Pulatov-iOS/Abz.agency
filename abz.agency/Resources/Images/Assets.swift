@@ -28,7 +28,12 @@ internal enum Asset {
     internal static let black = ColorAsset(name: "Colors/black")
     internal static let blue = ColorAsset(name: "Colors/blue")
     internal static let darkBlack = ColorAsset(name: "Colors/darkBlack")
+    internal static let darkBlue = ColorAsset(name: "Colors/darkBlue")
+    internal static let darkGray = ColorAsset(name: "Colors/darkGray")
     internal static let gray = ColorAsset(name: "Colors/gray")
+    internal static let mediumGray = ColorAsset(name: "Colors/mediumGray")
+    internal static let red = ColorAsset(name: "Colors/red")
+    internal static let white = ColorAsset(name: "Colors/white")
     internal static let yellow = ColorAsset(name: "Colors/yellow")
   }
   internal enum Images {
@@ -46,6 +51,10 @@ internal enum Asset {
         internal static let usersNotActive = ImageAsset(name: "Images/Main/TabBar/usersNotActive")
       }
       internal static let noUsers = ImageAsset(name: "Images/Main/noUsers")
+    }
+    internal enum SignUp {
+      internal static let circleActive = ImageAsset(name: "Images/SignUp/circleActive")
+      internal static let circleNotActive = ImageAsset(name: "Images/SignUp/circleNotActive")
     }
   }
 }

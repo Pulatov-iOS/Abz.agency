@@ -5,6 +5,8 @@
 //  Created by Alexander on 11.06.25.
 //
 
+import Foundation
+
 extension String {
     func formattedPhoneNumber() -> String {
         let cleaned = self.filter { $0.isNumber || $0 == "+" }
@@ -19,6 +21,32 @@ extension String {
         let part3 = cleaned.dropFirst(11)
 
         return "\(countryCode) (\(operatorCode)) \(part1) \(part2) \(part3)"
+    }
+    
+    func formatPhoneNumber() -> String {
+        let digits = self.components(separatedBy: CharacterSet.decimalDigits.inverted).joined()
+        let format = "+XX(XXX) XXX - XX - XX"
+        var result = ""
+        var digitIndex = digits.startIndex
+        
+        for char in format {
+            if char == "X" {
+                if digitIndex < digits.endIndex {
+                    result.append(digits[digitIndex])
+                    digitIndex = digits.index(after: digitIndex)
+                } else {
+                    break
+                }
+            } else {
+                if digitIndex < digits.endIndex {
+                    result.append(char)
+                } else {
+                    break
+                }
+            }
+        }
+        
+        return result
     }
 }
 

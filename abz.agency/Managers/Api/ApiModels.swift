@@ -32,3 +32,24 @@ struct Links: Codable {
     let next_url: String?
     let prev_url: String?
 }
+
+struct Position: Identifiable, Codable, Hashable {
+    let id: Int
+    let name: String
+}
+
+struct PositionsResponse: Codable {
+    let success: Bool
+    let positions: [Position]?
+}
+
+struct TokenResponse: Codable {
+    let success: Bool
+    let token: String
+}
+
+struct SignUpResponse: Decodable {
+    let success: Bool
+    let message: String
+    let fails: [String: [String]]?
+}

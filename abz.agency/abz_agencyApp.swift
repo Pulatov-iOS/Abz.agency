@@ -19,7 +19,7 @@ struct abz_agencyApp: App {
                     case .users:
                         MainView()
                     case .signUp:
-                        EmptyView()
+                        SignUpView()
                     }
                     
                     TabBarView(selectedTab: $viewModel.selectedTab)

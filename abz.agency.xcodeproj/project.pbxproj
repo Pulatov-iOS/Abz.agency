@@ -24,6 +24,9 @@
 		1119F5E72DF9EBB60055E052 /* NetworkMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1119F5E62DF9EBB60055E052 /* NetworkMonitor.swift */; };
 		1119F5E92DF9EC2E0055E052 /* AppViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1119F5E82DF9EC250055E052 /* AppViewModel.swift */; };
 		1119F5EC2DF9ECC50055E052 /* InternetConnectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1119F5EB2DF9ECC50055E052 /* InternetConnectionView.swift */; };
+		1119F5EF2DFA013F0055E052 /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1119F5EE2DFA013F0055E052 /* SignUpView.swift */; };
+		1119F5F12DFA01510055E052 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1119F5F02DFA01510055E052 /* ImagePicker.swift */; };
+		1119F5F32DFA01950055E052 /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1119F5F22DFA01940055E052 /* SignUpViewModel.swift */; };
 		752276CF2B012BFA2083687E /* Pods_abz_agency.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E58B04ABD5386783DDC753F6 /* Pods_abz_agency.framework */; };
 /* End PBXBuildFile section */
 
@@ -46,6 +49,9 @@
 		1119F5E62DF9EBB60055E052 /* NetworkMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkMonitor.swift; sourceTree = "<group>"; };
 		1119F5E82DF9EC250055E052 /* AppViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppViewModel.swift; sourceTree = "<group>"; };
 		1119F5EB2DF9ECC50055E052 /* InternetConnectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InternetConnectionView.swift; sourceTree = "<group>"; };
+		1119F5EE2DFA013F0055E052 /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
+		1119F5F02DFA01510055E052 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
+		1119F5F22DFA01940055E052 /* SignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewModel.swift; sourceTree = "<group>"; };
 		40125189B37C4E993C317680 /* Pods-abz.agency.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-abz.agency.debug.xcconfig"; path = "Target Support Files/Pods-abz.agency/Pods-abz.agency.debug.xcconfig"; sourceTree = "<group>"; };
 		D5E9ECC8F684E4726843ECED /* Pods-abz.agency.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-abz.agency.release.xcconfig"; path = "Target Support Files/Pods-abz.agency/Pods-abz.agency.release.xcconfig"; sourceTree = "<group>"; };
 		E58B04ABD5386783DDC753F6 /* Pods_abz_agency.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_abz_agency.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -108,6 +114,7 @@
 			isa = PBXGroup;
 			children = (
 				1119F5C82DF9C2540055E052 /* MainView */,
+				1119F5ED2DFA012E0055E052 /* SignUp */,
 				1119F5EA2DF9ECA40055E052 /* InternetConnection */,
 			);
 			path = Modules;
@@ -191,6 +198,16 @@
 				1119F5EB2DF9ECC50055E052 /* InternetConnectionView.swift */,
 			);
 			path = InternetConnection;
+			sourceTree = "<group>";
+		};
+		1119F5ED2DFA012E0055E052 /* SignUp */ = {
+			isa = PBXGroup;
+			children = (
+				1119F5EE2DFA013F0055E052 /* SignUpView.swift */,
+				1119F5F22DFA01940055E052 /* SignUpViewModel.swift */,
+				1119F5F02DFA01510055E052 /* ImagePicker.swift */,
+			);
+			path = SignUp;
 			sourceTree = "<group>";
 		};
 		2BFDC66C6C5C26E42A4E65F3 /* Frameworks */ = {
@@ -351,10 +368,13 @@
 				1119F5E52DF9E0840055E052 /* String+Extension.swift in Sources */,
 				1119F5D92DF9D13D0055E052 /* Fonts.swift in Sources */,
 				1119F5E02DF9DA290055E052 /* ApiModels.swift in Sources */,
+				1119F5F12DFA01510055E052 /* ImagePicker.swift in Sources */,
 				1119F5CA2DF9C27A0055E052 /* MainView.swift in Sources */,
 				1119F5D32DF9D0ED0055E052 /* Assets.swift in Sources */,
+				1119F5F32DFA01950055E052 /* SignUpViewModel.swift in Sources */,
 				1119F5DD2DF9DA070055E052 /* ApiManager.swift in Sources */,
 				1119F5EC2DF9ECC50055E052 /* InternetConnectionView.swift in Sources */,
+				1119F5EF2DFA013F0055E052 /* SignUpView.swift in Sources */,
 				1119F5E72DF9EBB60055E052 /* NetworkMonitor.swift in Sources */,
 				1119F5E92DF9EC2E0055E052 /* AppViewModel.swift in Sources */,
 				1119F5C02DF9C20B0055E052 /* abz_agencyApp.swift in Sources */,
@@ -497,6 +517,8 @@
 				ENABLE_PREVIEWS = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSCameraUsageDescription = "To add a profile picture";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "To add a profile picture";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -529,6 +551,8 @@
 				ENABLE_PREVIEWS = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSCameraUsageDescription = "To add a profile picture";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "To add a profile picture";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
