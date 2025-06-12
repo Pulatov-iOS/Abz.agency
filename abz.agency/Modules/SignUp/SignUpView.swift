@@ -22,7 +22,7 @@ struct SignUpView: View {
                     
                     TextFieldView(text: $viewModel.phone, isClear: $viewModel.isClear, isPhone: true, placeholder: "Phone", errorText: viewModel.fieldErrors["phone"] ?? "", showRedError: viewModel.fieldErrors["phone"] != nil)
                     
-                    PositionButtonsView(selectedPosition: $viewModel.selectedPosition)
+                    PositionButtonsView(positions: viewModel.positions, selectedPosition: $viewModel.selectedPosition)
                         .padding(.bottom, UIScreen.main.bounds.height * 0.018)
                     
                     UploadImageButtonView(showRedError: viewModel.fieldErrors["photo"] != nil, errorText: viewModel.fieldErrors["photo"] ?? "") {
@@ -192,38 +192,23 @@ struct TextFieldView: View {
     }
 }
 
-enum PositionType: Int, CaseIterable {
-    case frontend
-    case backend
-    case designer
-    case qa
-    
-    var title: String {
-        switch self {
-        case .frontend:
-            "Frontend developer"
-        case .backend:
-            "Backend developer"
-        case .designer:
-            "Designer"
-        case .qa:
-            "QA"
-        }
-    }
-}
-
 struct PositionButtonsView: View {
-    @Binding var selectedPosition: PositionType
+    let positions: [Position]
+    @Binding var selectedPosition: Position?
     var body: some View {
         VStack(alignment: .leading, spacing: 0) {
-            Text("Select your position")
-                .font(FontFamily.NunitoSans.regular.swiftUIFont(size: 18))
-                .foregroundStyle(Asset.Colors.black.swiftUIColor.opacity(0.87))
-                .padding(.bottom, UIScreen.main.bounds.height * 0.014)
+            HStack {
+                Text("Select your position")
+                    .font(FontFamily.NunitoSans.regular.swiftUIFont(size: 18))
+                    .foregroundStyle(Asset.Colors.black.swiftUIColor.opacity(0.87))
+                    .padding(.bottom, UIScreen.main.bounds.height * 0.014)
+                
+                Spacer()
+            }
             
-            ForEach(PositionType.allCases, id: \.self) { item in
-                PositionItemView(item: item, isActive: selectedPosition == item) {
-                    selectedPosition = item
+            ForEach(positions) { position in
+                PositionItemView(item: position, isActive: selectedPosition == position) {
+                    selectedPosition = position
                 }
             }
         }
@@ -231,7 +216,7 @@ struct PositionButtonsView: View {
 }
 
 struct PositionItemView: View {
-    let item: PositionType
+    let item: Position
     var isActive: Bool
     let onTap: (() -> Void)
     var body: some View {
@@ -245,7 +230,7 @@ struct PositionItemView: View {
                         .scaledToFit()
                         .frame(height: UIScreen.main.bounds.height * 0.06)
                     
-                    Text(item.title)
+                    Text(item.name)
                         .font(FontFamily.NunitoSans.regular.swiftUIFont(size: 16))
                         .foregroundStyle(Asset.Colors.black.swiftUIColor.opacity(0.87))
                 }
