@@ -78,7 +78,9 @@ struct MainUserItemView: View {
                     .resizable()
                     .scaledToFit()
             } placeholder: {
-                Asset.Colors.yellow.swiftUIColor.opacity(0.2)
+                Image(asset: Asset.Images.Main.people)
+                    .resizable()
+                    .scaledToFit()
             }
             .frame(width: UIScreen.main.bounds.height * 0.078, height: UIScreen.main.bounds.height * 0.078)
             .clipShape(Circle())
