@@ -13,21 +13,23 @@ struct abz_agencyApp: App {
     
     var body: some Scene {
         WindowGroup {
-            ZStack(alignment: .bottom) {
-                if viewModel.isConnected {
-                    switch viewModel.selectedTab {
-                    case .users:
-                        MainView()
-                    case .signUp:
-                        SignUpView()
+            NavigationStack {
+                ZStack(alignment: .bottom) {
+                    if viewModel.isConnected {
+                        switch viewModel.selectedTab {
+                        case .users:
+                            MainView()
+                        case .signUp:
+                            SignUpView()
+                        }
+                        
+                        TabBarView(selectedTab: $viewModel.selectedTab)
+                    } else {
+                        InternetConnectionView()
                     }
-                    
-                    TabBarView(selectedTab: $viewModel.selectedTab)
-                } else {
-                    InternetConnectionView()
                 }
+                .ignoresSafeArea(edges: .bottom)
             }
-            .ignoresSafeArea(edges: .bottom)
         }
     }
 }

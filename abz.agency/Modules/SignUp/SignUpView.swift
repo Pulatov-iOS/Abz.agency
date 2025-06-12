@@ -16,11 +16,11 @@ struct SignUpView: View {
             
             ScrollView {
                 VStack(spacing: UIScreen.main.bounds.height * 0.01875) {
-                    TextFieldView(text: $viewModel.name, placeholder: "Your name", errorText: viewModel.fieldErrors["name"] ?? "", showRedError: viewModel.fieldErrors["name"] != nil)
+                    TextFieldView(text: $viewModel.name, isClear: $viewModel.isClear, placeholder: "Your name", errorText: viewModel.fieldErrors["name"] ?? "", showRedError: viewModel.fieldErrors["name"] != nil)
                     
-                    TextFieldView(text: $viewModel.email, placeholder: "Email", errorText: viewModel.fieldErrors["email"] ?? "", showRedError: viewModel.fieldErrors["email"] != nil)
+                    TextFieldView(text: $viewModel.email, isClear: $viewModel.isClear, placeholder: "Email", errorText: viewModel.fieldErrors["email"] ?? "", showRedError: viewModel.fieldErrors["email"] != nil)
                     
-                    TextFieldView(text: $viewModel.phone, isPhone: true, placeholder: "Phone", errorText: viewModel.fieldErrors["phone"] ?? "", showRedError: viewModel.fieldErrors["phone"] != nil)
+                    TextFieldView(text: $viewModel.phone, isClear: $viewModel.isClear, isPhone: true, placeholder: "Phone", errorText: viewModel.fieldErrors["phone"] ?? "", showRedError: viewModel.fieldErrors["phone"] != nil)
                     
                     PositionButtonsView(selectedPosition: $viewModel.selectedPosition)
                         .padding(.bottom, UIScreen.main.bounds.height * 0.018)
@@ -73,6 +73,9 @@ struct SignUpView: View {
         .onTapGesture {
             hideKeyboard()
         }
+        .navigationDestination(isPresented: $viewModel.showSuccess) {
+            ResultView(isSuccess: $viewModel.isSuccessResult, dismiss: $viewModel.showSuccess)
+        }
     }
     
     private func hideKeyboard() {
@@ -86,6 +89,7 @@ struct SignUpView: View {
 
 struct TextFieldView: View {
     @Binding var text: String
+    @Binding var isClear: Bool
     var isPhone: Bool = false
     let placeholder: String
     let errorText: String
@@ -135,9 +139,9 @@ struct TextFieldView: View {
                 
                 VStack(alignment: .leading, spacing: 0) {
                     Text(placeholder)
-                        .font(FontFamily.NunitoSans.regular.swiftUIFont(size: text.count > 0 ? 12 : 16))
+                        .font(FontFamily.NunitoSans.regular.swiftUIFont(size: text.count > 0 ? (isPhone && text.filter { $0.isWholeNumber }.count == 0 ? 16 : 12) : 16))
                         .foregroundStyle(showError ? Asset.Colors.red.swiftUIColor : Asset.Colors.black.swiftUIColor.opacity(0.48))
-                        .opacity(text.count > 0 ? (showError ? 1 : 0) : 1)
+                        .opacity(text.count > 0 ? (showError ? 1 : (isPhone && text.filter { $0.isWholeNumber }.count == 0 ? 1 : 0)) : 1)
                     
                     if showError && text.count > 0 {
                         Text(isPhone ? text.formatPhoneNumber() : text)
@@ -173,6 +177,10 @@ struct TextFieldView: View {
             text = "+\(digits)"
         }
         .onChange(of: focus) {
+            showError = false
+        }
+        .onChange(of: isClear) {
+            tempText = ""
             showError = false
         }
         .onChange(of: showRedError) {

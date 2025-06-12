@@ -52,6 +52,11 @@ internal enum Asset {
       }
       internal static let noUsers = ImageAsset(name: "Images/Main/noUsers")
     }
+    internal enum Result {
+      internal static let close = ImageAsset(name: "Images/Result/close")
+      internal static let error = ImageAsset(name: "Images/Result/error")
+      internal static let success = ImageAsset(name: "Images/Result/success")
+    }
     internal enum SignUp {
       internal static let circleActive = ImageAsset(name: "Images/SignUp/circleActive")
       internal static let circleNotActive = ImageAsset(name: "Images/SignUp/circleNotActive")

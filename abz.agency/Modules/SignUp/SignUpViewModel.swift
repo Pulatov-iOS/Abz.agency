@@ -27,6 +27,8 @@ final class SignUpViewModel: ObservableObject {
     @Published var positions: [Position] = []
     
     @Published var showSuccess: Bool = false
+    @Published var isSuccessResult: Bool = false
+    @Published var isClear: Bool = false
 
     private var cancellables = Set<AnyCancellable>()
 
@@ -63,7 +65,7 @@ final class SignUpViewModel: ObservableObject {
             name: name,
             email: email,
             phone: phone,
-            positionId: selectedPosition.rawValue,
+            positionId: selectedPosition.rawValue + 1,
             photo: photo
         ) { [weak self] result in
             DispatchQueue.main.async {
@@ -74,11 +76,15 @@ final class SignUpViewModel: ObservableObject {
                         self?.isSuccess = true
                         self?.serverMessage = response.message
                         self?.resetForm()
+                        self?.isSuccessResult = true
                         self?.showSuccess.toggle()
                     } else {
                         self?.serverMessage = response.message
                         self?.fieldErrors = response.fails?.mapValues { $0.first ?? "" } ?? [:]
-                        print("Parsed field errors: \(self?.fieldErrors ?? [:])")
+                        if response.message == "User with this phone or email already exist" {
+                            self?.isSuccessResult = false
+                            self?.showSuccess.toggle()
+                        }
                     }
                 case .failure(let error):
                     self?.serverMessage = "Registration failed: \(error.localizedDescription)"
@@ -94,6 +100,7 @@ final class SignUpViewModel: ObservableObject {
         selectedPosition = .frontend
         photo = nil
         fieldErrors = [:]
+        isClear.toggle()
     }
 
     func activeButton() -> Bool {
