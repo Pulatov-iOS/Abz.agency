@@ -13,7 +13,7 @@ final class SignUpViewModel: ObservableObject {
     @Published var name: String = ""
     @Published var email: String = ""
     @Published var phone: String = ""
-    @Published var selectedPosition: PositionType = .frontend
+    @Published var selectedPosition: Position?
     @Published var photo: UIImage?
     
     @Published var showImagePicker: Bool = false
@@ -42,6 +42,7 @@ final class SignUpViewModel: ObservableObject {
                 switch result {
                 case .success(let positions):
                     self?.positions = positions
+                    self?.selectedPosition = positions.first
                 case .failure(let error):
                     self?.serverMessage = "Failed to load positions: \(error.localizedDescription)"
                 }
@@ -65,7 +66,7 @@ final class SignUpViewModel: ObservableObject {
             name: name,
             email: email,
             phone: phone,
-            positionId: selectedPosition.rawValue + 1,
+            positionId: selectedPosition?.id ?? 0,
             photo: photo
         ) { [weak self] result in
             DispatchQueue.main.async {
@@ -97,7 +98,7 @@ final class SignUpViewModel: ObservableObject {
         name = ""
         email = ""
         phone = ""
-        selectedPosition = .frontend
+        selectedPosition = nil
         photo = nil
         fieldErrors = [:]
         isClear.toggle()
