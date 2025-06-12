@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct SignUpView: View {
-    @StateObject private var viewModel = SignUpViewModel()
+    @ObservedObject var viewModel: SignUpViewModel
     
     var body: some View {
         VStack(spacing: 0) {
@@ -84,7 +84,7 @@ struct SignUpView: View {
 }
 
 #Preview {
-    SignUpView()
+    SignUpView(viewModel: SignUpViewModel())
 }
 
 struct TextFieldView: View {
