@@ -9,21 +9,22 @@ import SwiftUI
 
 @main
 struct abz_agencyApp: App {
-    @StateObject private var viewModel = AppViewModel()
+    @StateObject private var appViewModel = AppViewModel()
+    @StateObject private var signUpviewModel = SignUpViewModel()
     
     var body: some Scene {
         WindowGroup {
             NavigationStack {
                 ZStack(alignment: .bottom) {
-                    if viewModel.isConnected {
-                        switch viewModel.selectedTab {
+                    if appViewModel.isConnected {
+                        switch appViewModel.selectedTab {
                         case .users:
                             MainView()
                         case .signUp:
-                            SignUpView()
+                            SignUpView(viewModel: signUpviewModel)
                         }
                         
-                        TabBarView(selectedTab: $viewModel.selectedTab)
+                        TabBarView(selectedTab: $appViewModel.selectedTab)
                     } else {
                         InternetConnectionView()
                     }
